@@ -10,7 +10,7 @@ def test_api_endpoint():
     api_url = "http://127.0.0.1:5000/analyze"
     
     # Product to test
-    product_name = "apple mac"
+    product_name = "iphone 14 plus"
     
     print(f"Testing API for: {product_name}")
     
