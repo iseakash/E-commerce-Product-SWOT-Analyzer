@@ -10,12 +10,20 @@ from flask import Flask, request, jsonify
 import unicodedata
 import base64
 from datetime import datetime
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
+# Load variables from .env file
+load_dotenv()
+
+# Access the keys
+google_api_key = os.getenv("custom_search_api_key")
+search_engine_id = os.getenv("search_engine_id")
+
 # Set your Google API key and CSE ID
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "AIzaSyDEp-TjHGV7EM7EtVCIxTEisUEDBCLoRW4")
-SEARCH_ENGINE_ID = os.environ.get("SEARCH_ENGINE_ID", "b2cc66cf8a84f48ab")
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", google_api_key)
+SEARCH_ENGINE_ID = os.environ.get("SEARCH_ENGINE_ID", search_engine_id)
 
 # Sentiment pipeline
 SENTIMENT_MODEL = None
